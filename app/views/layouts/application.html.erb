@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ahlashop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+
+  <% if user_signed_in? %>
+    <% if notice.present? %>
+      <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+        <span><strong>Yay!</strong> 🎉 <%= notice %></span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+        <span><strong>Oops!</strong> 😱 <%= alert %></span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    <% end %>
+
+    <%= render "shared/sidebar" %>
+  <% end %>
+
+
+
+
+
+
+  </body>
+</html>
