@@ -34,6 +34,11 @@
   <% end %>
 
 
+  <% if !user_signed_in? %>
+    <div class="col py-3">
+      <%= yield %>
+    </div>
+    <% end %>
 
 
 
