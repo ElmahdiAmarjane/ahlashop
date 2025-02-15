@@ -1,39 +1,32 @@
 <div class="wrapper bg-white p-4">
-    <div class="h2 text-center">Creativity</div>
-    <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+<div class="text-center">
+  <%= image_tag "logoahlashop.png", alt: "Logo", class: "img-fluid logo-small" %>
+</div>
+
+    <div class="h5 text-center pt-2">Login to your account</div>
     
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}, html: {class: "pt-3"}) do |f| %>
         <div class="form-group py-2">
             <div class="input-field d-flex align-items-center"> 
                 <span class="far fa-user p-2"></span> 
-                <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", placeholder: "Username or Email Address", class: "form-control border-0" }, label: false %>
+                <%= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", placeholder: "Username", class: "border-0" }, label: false %>
             </div>
         </div>
         
         <div class="form-group py-1 pb-2">
             <div class="input-field d-flex align-items-center"> 
                 <span class="fas fa-lock p-2"></span> 
-                <%= f.input :password, required: false, input_html: { autocomplete: "current-password", placeholder: "Enter your Password", class: "form-control border-0" }, label: false %>
-                <button type="button" class="btn bg-white text-muted border-0"> 
-                    <span class="far fa-eye-slash"></span> 
+                <%= f.input :password, required: false, input_html: { autocomplete: "current-password", placeholder: "Password", class: "border-0" }, label: false %>
+                <button type="button" class="btn  border-0"> 
+                    <span class="far fa-eye-slash text-black"></span> 
                 </button>
             </div>
         </div>
         
-        <div class="d-flex align-items-start">
-            <% if devise_mapping.rememberable? %>
-                <div class="remember"> 
-                    <label class="option text-muted"> Remember me
-                        <%= f.check_box :remember_me, class: "ml-2" %>
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            <% end %>
-            <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div>
-        </div>
+      
         
-        <%= f.button :submit, "Log in", class: "btn btn-block text-center my-3 bg-primary text-white" %>
-    <% end %>
+        <%= f.button :submit, "LOGIN ⮕", class: "btn btn-block text-center my-3 text-white btn-login fw-bold " %><span class="far fa-arrow p-2"></span> 
+        <% end %>
     
-    <div class="text-center pt-3 text-muted">Not a member? <a href="#">Sign up</a></div>
+   
 </div>

@@ -1,23 +1,33 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <!-- Sidebar -->
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <%= link_to root_path, class: "d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" do %>
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+        
+                    <%= image_tag "logoahlashop-white.png", alt: "Logo", class: "img-fluid logo-dash" %>
                 <% end %>
 
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <%= link_to "Dashboard", root_path, class: "nav-link align-middle px-0" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "Sourcing", sourcing_path, class: "nav-link align-middle px-0" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "Media Buying", media_buying_path, class: "nav-link align-middle px-0" %>
-                    </li>
-                </ul>
+                <li class="nav-item">
+                  <%= link_to root_path, class: "nav-link align-middle px-0 #{'active' if current_page?(root_path)}" do %>
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to sourcing_path, class: "nav-link align-middle px-0 #{'active' if current_page?(sourcing_path)}" do %>
+                    <i class="fas fa-search"></i>
+                    <span>Sourcing</span>
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to media_buying_path, class: "nav-link align-middle px-0 #{'active' if current_page?(media_buying_path)}" do %>
+                    <i class="fas fa-ad"></i>
+                    <span>Media Buying</span>
+                  <% end %>
+                </li>
+              </ul>
 
                 <hr>
                 <div class="dropdown pb-4">
