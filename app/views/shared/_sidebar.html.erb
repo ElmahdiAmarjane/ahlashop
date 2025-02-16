@@ -1,49 +1,59 @@
-<div class="container-fluid ">
+<div class="container-fluid">
     <div class="row flex-nowrap">
         <!-- Sidebar -->
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar d-flex flex-column">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar d-flex flex-column fixed-sidebar">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <!-- Bouton pour ouvrir/fermer la sidebar sur mobile -->
+                <button class="d-md-none btn btn-link text-white p-0 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+                    <i class="fa-solid fa-bars fs-3"></i>
+                </button>
+
+                <!-- Logo et lien -->
                 <%= link_to root_path, class: "d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" do %>
                     <!-- Logo visible sur les écrans moyens et grands -->
                     <%= image_tag "logoahlashop-white.png", alt: "Logo", class: "img-fluid logo-dash d-none d-md-block" %>
                     
                     <!-- Icône visible sur les petits écrans -->
-                    <i class="fa-solid fa-store d-md-none d-none fs-3"></i>
+                   
                 <% end %>
 
-                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <%= link_to root_path, class: "nav-link align-middle px-2 #{'active' if current_page?(root_path)}" do %>
-                            <i class="fa-solid fa-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
-                        <% end %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to sourcing_path, class: "nav-link align-middle px-2 #{'active' if current_page?(sourcing_path)}" do %>
-                            <i class="fa-solid fa-truck"></i><span class="ms-1 d-none d-sm-inline">Sourcing</span>
-                        <% end %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to media_buying_path, class: "nav-link align-middle px-2 #{'active' if current_page?(media_buying_path)}" do %>
-                            <i class="fa-solid fa-capsules"></i><span class="ms-1 d-none d-sm-inline">Media Buying</span>
-                        <% end %>
-                    </li>
-                </ul>
+                <!-- Menu de la sidebar -->
+                <div class="collapse d-md-block" id="sidebarMenu">
+                    <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
+                        <li class="nav-item">
+                            <%= link_to root_path, class: "nav-link align-middle px-2 #{'active' if current_page?(root_path)}" do %>
+                                <i class="fa-solid fa-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            <% end %>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to sourcing_path, class: "nav-link align-middle px-2 #{'active' if current_page?(sourcing_path)}" do %>
+                                <i class="fa-solid fa-truck"></i><span class="ms-1 d-none d-sm-inline">Sourcing</span>
+                            <% end %>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to media_buying_path, class: "nav-link align-middle px-2 #{'active' if current_page?(media_buying_path)}" do %>
+                                <i class="fa-solid fa-capsules"></i><span class="ms-1 d-none d-sm-inline">Media Buying</span>
+                            <% end %>
+                        </li>
+                    </ul>
+                </div>
 
                 <hr>
 
-                <!-- Ensure the logout button stays at the bottom of the sidebar -->
+                <!-- Bouton de déconnexion -->
                 <div class="mt-auto pb-4 d-flex justify-content-center w-100">
                     <%= button_to destroy_user_session_path, method: :delete, class: "btn-logout btn bg-white d-flex align-items-center btn-lg" do %>
                         <i class="fas fa-sign-out-alt"></i> 
-                        <span class="ms-2 d-none d-sm-inline">Logout</span> <!-- Hide on small screens -->
+                        <span class="ms-2 d-none d-sm-inline">Logout</span>
                     <% end %>
                 </div>
             </div>
         </div>
 
         <!-- Content Area -->
-        <div class="col py-3">
+        <div class="col py-3 content-area">
             <%= yield %>
+           
         </div>
     </div>
 </div>

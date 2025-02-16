@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "sourcing", to: "pages#sourcing"
   get "media_buying", to: "pages#media_buying"
-
+  
+  
 
 end

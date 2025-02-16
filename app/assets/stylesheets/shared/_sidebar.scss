@@ -53,4 +53,55 @@
   }
 
 
- 
+  /* Fixed Sidebar */
+.fixed-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height of the viewport */
+  width: 250px; /* Adjust width as needed */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  z-index: 1000; /* Ensure sidebar is above other content */
+  background-color: $violet; /* Adjust background color as needed */
+}
+
+/* Adjust content area to account for the fixed sidebar */
+.content-area {
+  margin-left: 250px; /* Same as the width of the sidebar */
+  padding: 20px; /* Add padding for better spacing */
+}
+
+
+/* Styles pour la sidebar fixe */
+.fixed-sidebar {
+  position: fixed; /* Fixe la sidebar */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  overflow-y: auto; /* Active le défilement interne si nécessaire */
+  z-index: 1000; /* Assure que la sidebar est au-dessus du contenu */
+  background-color: $violet; /* Couleur de fond de la sidebar (ajustez selon vos besoins) */
+}
+
+/* Styles pour la zone de contenu principale */
+.content-area {
+  margin-left: 250px; /* Ajustez cette valeur en fonction de la largeur de votre sidebar */
+  padding: 20px; /* Espacement interne */
+}
+
+/* Ajustements pour les écrans mobiles */
+@media (max-width: 767.98px) {
+  .fixed-sidebar {
+      width: 60px; /* Largeur réduite sur mobile */
+  }
+
+  .content-area {
+      margin-left: 60px; /* Ajustez en fonction de la largeur réduite de la sidebar */
+  }
+
+  .sidebar .logo-dash {
+      display: none; /* Masquer le logo sur mobile */
+  }
+
+  .sidebar .btn-logout span {
+      display: none; /* Masquer le texte du bouton de déconnexion sur mobile */
+  }
+}

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     end
   
     def sourcing
+      @products = Product.all
     end
   
     def media_buying

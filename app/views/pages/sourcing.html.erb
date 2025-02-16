@@ -1,1 +1,90 @@
-<h1>sourcing</h1>
+
+
+    <div class="container">
+        <div class="filters-container">
+            <input type="text" placeholder="Filtrer par produit">
+            <input type="date" placeholder="Filtrer par date">
+            <button><i class="fas fa-filter"></i> Filtrer</button>
+            <button><i class="fas fa-plus"></i> Ajouter un produit</button>
+        </div>
+        <% @products.each do |product| %>
+        <div class="container1">
+            <div class="square image">
+                <input type="file" id="fileInput" accept="image/*">
+                <label for="fileInput">
+                    <i class="fa-solid fa-image fa-2xl"></i>
+                </label>
+            </div>
+
+            <div class="square product-name">
+                <div class="title">Product Name</div>
+                <textarea placeholder=""><%= product.p_name %></textarea>
+            </div>
+
+            <div class="square infos1">
+                <div class="top">
+                    <div class="square link">
+                        <div class="title">Link</div>
+                        <textarea placeholder=""><%= product.p_link %></textarea>
+                    </div>
+                    <div class="square qntt">
+                        <div class="title">Qntt</div>
+                        <textarea placeholder=""><%= product.p_qnt %></textarea>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="square price">
+                        <div class="title">Price</div>
+                        <textarea placeholder="" readonly><%= (product.p_cost + product.p_shipping_cost) / product.p_qnt %> </textarea>
+                    </div>
+                    <div class="square market">
+                        <div class="title">Market</div>
+                        <textarea placeholder=""><%= product.p_market %></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="square infos2">
+                <div class="top">
+                    <div class="title">Product cost</div>
+                    <textarea placeholder=""><%= product.p_cost %></textarea>
+                </div>
+                <div class="bottom">
+                    <div class="title">Delivery date</div>
+                    <textarea placeholder=""><%= product.p_qnt %></textarea>
+                </div>
+            </div>
+
+            <div class="square infos2">
+                <div class="top">
+                    <div class="title">Shipping cost</div>
+                    <textarea placeholder=""><%= product.p_shipping_cost %></textarea>
+                </div>
+                <div class="bottom">
+                    <div class="title">Product ref</div>
+                    <textarea placeholder=""><%= product.p_reference %></textarea>
+                </div>
+            </div>
+
+            <div class="square infos2">
+                <div class="top">
+                    <div class="title">Sourcing date</div>
+                    <textarea placeholder=""><%= Time.at(product.p_sourcing_date).strftime("%Y-%m-%d") %></textarea>
+                </div>
+                <div class="bottom">
+                    <div class="title">Sourcing period</div>
+                    <textarea placeholder="" readonly><%= product.sourcing_period %></textarea>
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <button class="btn edit">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="btn delete">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
+            </div>
+        </div>
+        <% end %>
+    </div>
