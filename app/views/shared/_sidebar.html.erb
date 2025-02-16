@@ -4,30 +4,30 @@
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <%= link_to root_path, class: "d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" do %>
-        
-                    <%= image_tag "logoahlashop-white.png", alt: "Logo", class: "img-fluid logo-dash" %>
+                    <!-- Logo visible sur les écrans moyens et grands -->
+                    <%= image_tag "logoahlashop-white.png", alt: "Logo", class: "img-fluid logo-dash d-none d-md-block" %>
+                    
+                    <!-- Icône visible sur les petits écrans -->
+                    <i class="fa-solid fa-store d-md-none d-none fs-3"></i>
                 <% end %>
 
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                <li class="nav-item">
-                  <%= link_to root_path, class: "nav-link align-middle px-0 #{'active' if current_page?(root_path)}" do %>
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to sourcing_path, class: "nav-link align-middle px-0 #{'active' if current_page?(sourcing_path)}" do %>
-                    <i class="fas fa-search"></i>
-                    <span>Sourcing</span>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to media_buying_path, class: "nav-link align-middle px-0 #{'active' if current_page?(media_buying_path)}" do %>
-                    <i class="fas fa-ad"></i>
-                    <span>Media Buying</span>
-                  <% end %>
-                </li>
-              </ul>
+                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <%= link_to root_path, class: "nav-link align-middle px-2 #{'active' if current_page?(root_path)}" do %>
+                        <i class="fa-solid fa-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                        <% end %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to sourcing_path, class: "nav-link align-middle px-2 #{'active' if current_page?(sourcing_path)}" do %>
+                        <i class="fa-solid fa-truck"></i><span class="ms-1 d-none d-sm-inline">Sourcing</span>
+                        <% end %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to media_buying_path, class: "nav-link align-middle px-2 #{'active' if current_page?(media_buying_path)}" do %>
+                        <i class="fa-solid fa-capsules"></i><span class="ms-1 d-none d-sm-inline">Media Buying</span>
+                        <% end %>
+                    </li>
+                </ul>
 
                 <hr>
                 <div class="dropdown pb-4">

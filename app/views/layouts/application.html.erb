@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -21,14 +22,7 @@
       </div>
     <% end %>
 
-    <% if alert.present? %>
-      <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-        <span><strong>Oops!</strong> 😱 <%= alert %></span>
-        <a data-bs-dismiss="alert" aria-label="Close">
-          <i class="fas fa-times"></i>
-        </a>
-      </div>
-    <% end %>
+    
 
     <%= render "shared/sidebar" %>
   <% end %>
@@ -38,6 +32,16 @@
     <div class="col py-3">
       <%= yield %>
     </div>
+    <% end %>
+
+
+    <% if alert.present? %>
+      <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+        <span><strong>Oops!</strong> 😱 <%= alert %></span>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
     <% end %>
 
 

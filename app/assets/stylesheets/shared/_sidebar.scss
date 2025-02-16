@@ -1,5 +1,5 @@
 .logo-dash{
-    width: 160px;
+    width: 80%;
 }
 
 .sidebar{
@@ -12,14 +12,34 @@
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    color: #000; /* Default text color */
-    background-color: red; /* Default background color for inactive links */
+    color: #ffffff; /* Default text color */
+    background-color: $violet; /* Default background color for inactive links */
+    font-weight: bold;
+  }
+
+  .nav .nav-item {
+    margin: 4px 0;
+    width: 100%;
   }
   
   .nav-link.active {
     background-color: white; /* Background color for active links */
+    color: $violet;
+    border-radius: 10px;
+    width: 100%; 
+  }
+
+  .nav-link.active:hover {
+    color: $violet;
+  }
+
+  .nav-link:hover {
+      color: #fff;  
   }
   
   .nav-link i {
     margin-right: 0.5rem; /* Space between icon and text */
   }
+
+
+ 
