@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row flex-nowrap">
         <!-- Sidebar -->
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar d-flex flex-column">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <%= link_to root_path, class: "d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" do %>
                     <!-- Logo visible sur les écrans moyens et grands -->
@@ -14,29 +14,29 @@
                 <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <%= link_to root_path, class: "nav-link align-middle px-2 #{'active' if current_page?(root_path)}" do %>
-                        <i class="fa-solid fa-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            <i class="fa-solid fa-house"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
                         <% end %>
                     </li>
                     <li class="nav-item">
                         <%= link_to sourcing_path, class: "nav-link align-middle px-2 #{'active' if current_page?(sourcing_path)}" do %>
-                        <i class="fa-solid fa-truck"></i><span class="ms-1 d-none d-sm-inline">Sourcing</span>
+                            <i class="fa-solid fa-truck"></i><span class="ms-1 d-none d-sm-inline">Sourcing</span>
                         <% end %>
                     </li>
                     <li class="nav-item">
                         <%= link_to media_buying_path, class: "nav-link align-middle px-2 #{'active' if current_page?(media_buying_path)}" do %>
-                        <i class="fa-solid fa-capsules"></i><span class="ms-1 d-none d-sm-inline">Media Buying</span>
+                            <i class="fa-solid fa-capsules"></i><span class="ms-1 d-none d-sm-inline">Media Buying</span>
                         <% end %>
                     </li>
                 </ul>
 
                 <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="d-none d-sm-inline mx-1"><%= current_user.email if user_signed_in? %></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-                    </ul>
+
+                <!-- Ensure the logout button stays at the bottom of the sidebar -->
+                <div class="mt-auto pb-4 d-flex justify-content-center w-100">
+                    <%= button_to destroy_user_session_path, method: :delete, class: "btn-logout btn bg-white d-flex align-items-center btn-lg" do %>
+                        <i class="fas fa-sign-out-alt"></i> 
+                        <span class="ms-2 d-none d-sm-inline">Logout</span> <!-- Hide on small screens -->
+                    <% end %>
                 </div>
             </div>
         </div>
